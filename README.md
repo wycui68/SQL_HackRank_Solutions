@@ -1,0 +1,1 @@
+# SQL_HackRank_Solutions
