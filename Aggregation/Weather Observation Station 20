@@ -1,0 +1,14 @@
+# SQL server
+# another option:percent_disc in SQL server
+
+with cet as 
+(
+select LAT_N, 
+    row_number() over(order by LAT_N) as rnk
+from STATION
+)
+
+select cast(round(LAT_N, 4) as DECIMAL(20, 4))
+from cet 
+where rnk = (select count(*)/2 + 1
+             from STATION)
